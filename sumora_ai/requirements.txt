@@ -1,21 +1,17 @@
 
-# Deep Learning and NLP
-torch
-transformers
-sentencepiece
-accelerate
+# AI Model and Inference
+torch==2.11.0
+transformers==5.6.1
+safetensors==0.7.0
+tokenizers==0.22.2
 
 # Data Processing
-pandas
-numpy
+numpy==2.2.6
 
-# Backend API
-fastapi
-uvicorn
-pydantic
+# FastAPI Backend
+fastapi==0.136.0
+uvicorn==0.46.0
+pydantic==2.13.3
 
-# Frontend Templates
-jinja2
-
-# Model Compatibility
-protobuf
+# HTML Templates
+jinja2==3.1.6

@@ -25,13 +25,10 @@ app = FastAPI(
 # EXISTING T5 MODEL
 # ----------------------------------
 
-model = T5ForConditionalGeneration.from_pretrained(
-    "./saved_summary_model"
-)
+MODEL_ID = "Faizan-2419/sumora-ai-t5-dialogue-summarizer"
 
-tokenizer = T5Tokenizer.from_pretrained(
-    "./saved_summary_model"
-)
+model = T5ForConditionalGeneration.from_pretrained(MODEL_ID)
+tokenizer = T5Tokenizer.from_pretrained(MODEL_ID)
 
 
 # Device selection

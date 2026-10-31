@@ -1,0 +1,21 @@
+
+# Deep Learning and NLP
+torch
+transformers
+sentencepiece
+accelerate
+
+# Data Processing
+pandas
+numpy
+
+# Backend API
+fastapi
+uvicorn
+pydantic
+
+# Frontend Templates
+jinja2
+
+# Model Compatibility
+protobuf

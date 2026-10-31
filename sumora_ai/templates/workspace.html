@@ -1,0 +1,511 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Workspace — Sumora AI
+{% endblock %}
+
+{% block description %}
+Use the Sumora AI workspace to transform dialogue into concise summaries powered by a fine-tuned T5 Transformer.
+{% endblock %}
+
+{% block content %}
+
+<!-- =====================================
+     WORKSPACE PAGE INTRODUCTION
+====================================== -->
+
+<section class="workspace-page">
+
+    <div class="shell">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+
+            <a href="/">Home</a>
+
+            <span aria-hidden="true">/</span>
+
+            <span>Workspace</span>
+
+        </div>
+
+
+        <!-- Workspace Header -->
+        <div class="workspace-intro">
+
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                YOUR AI-POWERED WORKSPACE
+            </div>
+
+            <h1>
+                Your thoughts,
+                <em>distilled.</em>
+            </h1>
+
+            <p>
+                Paste a conversation, generate a summary,
+                and focus on what truly matters.
+                A simpler way to understand lengthy dialogues.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================
+             MAIN SUMMARIZATION WORKSPACE
+        ====================================== -->
+
+        <div class="workspace-container">
+
+            <div class="workspace-toolbar">
+
+                <div class="workspace-toolbar-title">
+
+                    <span class="workspace-toolbar-icon">
+                        ✳
+                    </span>
+
+                    <span>Sumora Studio</span>
+
+                </div>
+
+                <span class="workspace-model-tag">
+                    Powered by T5 Transformer
+                </span>
+
+            </div>
+
+
+            <form id="summarization-form">
+
+                <div class="workspace-grid">
+
+                    <!-- =========================
+                         LEFT — INPUT PANEL
+                    ========================== -->
+
+                    <section class="workspace-panel input-panel"
+                             aria-labelledby="input-title">
+
+                        <div class="panel-heading">
+
+                            <div>
+
+                                <span class="panel-eyebrow">
+                                    01 / YOUR CONTENT
+                                </span>
+
+                                <h2 id="input-title">
+                                    Input Dialogue
+                                </h2>
+
+                            </div>
+
+                            <span class="panel-heading-icon" aria-hidden="true">
+                                <i data-lucide="file-pen-line"></i>
+                            </span>
+
+                        </div>
+
+
+                        <p class="panel-description">
+                            Add the conversation you'd like
+                            to summarize.
+                        </p>
+
+
+                        <!-- Dialogue textarea -->
+                        <label class="sr-only"
+                               for="dialogue-input">
+                            Conversation text
+                        </label>
+
+                        <textarea
+                            id="dialogue-input"
+                            name="dialogue"
+                            class="workspace-textarea"
+                            placeholder="Paste your conversation here...
+
+Alex: Hey, are we still meeting tomorrow?
+
+Sam: Yes! Let's meet at 10 AM.
+
+Alex: Perfect, I'll see you there."
+                            spellcheck="true"
+                            required
+                        ></textarea>
+
+
+                        <!-- Input statistics -->
+                        <div class="input-stats">
+
+                            <span>
+                                <strong id="input-word-count">0</strong>
+                                words
+                            </span>
+
+                            <span>
+                                <strong id="input-char-count">0</strong>
+                                characters
+                            </span>
+
+                        </div>
+
+
+                        <!-- Input actions -->
+                        <div class="panel-actions">
+
+                            <button
+                                type="button"
+                                id="sample-button"
+                                class="text-action"
+                            >
+                                <i data-lucide="file-text" aria-hidden="true"></i>
+                                Try Example
+                            </button>
+
+                            <button
+                                type="button"
+                                id="clear-input-button"
+                                class="text-action"
+                            >
+                                <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+                                Clear Input
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =========================
+                         RIGHT — OUTPUT PANEL
+                    ========================== -->
+
+                    <section class="workspace-panel output-panel"
+                             aria-labelledby="output-title">
+
+                        <div class="panel-heading">
+
+                            <div>
+
+                                <span class="panel-eyebrow">
+                                    02 / THE ESSENTIALS
+                                </span>
+
+                                <h2 id="output-title">
+                                    Generated Summary
+                                </h2>
+
+                            </div>
+
+                            <span class="panel-heading-icon" aria-hidden="true">
+                                <i data-lucide="sparkles"></i>
+                            </span>
+
+                        </div>
+
+
+                        <p class="panel-description">
+                            Your concise AI-generated
+                            summary will appear here.
+                        </p>
+
+
+                        <!-- Output display -->
+                        <div
+                            id="summary-output"
+                            class="summary-result"
+                            aria-live="polite"
+                            aria-atomic="true"
+                        >
+
+                            <!-- Empty state -->
+                            <div
+                                id="summary-empty-state"
+                                class="summary-empty-state"
+                            >
+
+                                <div class="empty-state-icon"
+                                     aria-hidden="true">
+                                    ✧
+                                </div>
+
+                                <h3>
+                                    Clarity begins here.
+                                </h3>
+
+                                <p>
+                                    Add your conversation and
+                                    select Generate Summary to
+                                    see your results.
+                                </p>
+
+                            </div>
+
+
+                            <!-- Generated summary -->
+                            <p
+                                id="summary-text"
+                                class="summary-text"
+                                hidden
+                            ></p>
+
+
+                            <!-- Loading state -->
+                            <div
+                                id="summary-loading"
+                                class="summary-loading"
+                                role="status"
+                                hidden
+                            >
+
+                                <div class="loading-spinner"
+                                     aria-hidden="true">
+                                </div>
+
+                                <p>
+                                    Finding the meaningful details...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Summary stats -->
+                        <div class="output-stats">
+
+                            <span>
+                                <strong id="summary-word-count">0</strong>
+                                summary words
+                            </span>
+
+                            <span
+                                id="summary-status"
+                                class="summary-status"
+                            >
+                                Awaiting input
+                            </span>
+
+                        </div>
+
+
+                        <!-- Output actions -->
+                        <div class="panel-actions">
+
+                            <button
+                                type="button"
+                                id="copy-summary-button"
+                                class="text-action"
+                                disabled
+                            >
+                                <i data-lucide="copy" aria-hidden="true"></i>
+                                Copy Summary
+                            </button>
+
+                            <button
+                                type="button"
+                                id="clear-summary-button"
+                                class="text-action"
+                                disabled
+                            >
+                                <i data-lucide="trash-2" aria-hidden="true"></i>
+                                Clear Result
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- =========================
+                     MAIN ACTION BAR
+                ========================== -->
+
+                <div class="workspace-action-bar">
+
+                    <div class="workspace-action-description">
+
+                        <span class="action-description-icon"
+                              aria-hidden="true">
+                            ✦
+                        </span>
+
+                        <p>
+                            One conversation.
+                            One clearer perspective.
+                        </p>
+
+                    </div>
+
+
+                    <div class="workspace-main-actions">
+
+                        <button
+                            type="button"
+                            id="clear-all-button"
+                            class="button button-secondary"
+                        >
+                            <i data-lucide="eraser" aria-hidden="true"></i>
+                            Clear All
+                        </button>
+
+                        <button
+                            type="submit"
+                            id="summarize-button"
+                            class="button button-primary"
+                            disabled
+                        >
+                            <i data-lucide="sparkles" aria-hidden="true"></i>
+                            Generate Summary
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- =====================================
+             WORKSPACE INFORMATION
+        ====================================== -->
+
+        <div class="workspace-info-grid">
+            <div class="workspace-privacy-note">
+                <i data-lucide="shield-alert" aria-hidden="true"></i>
+
+                <p>
+                    <strong>Privacy reminder:</strong>
+                    Avoid entering passwords, confidential records,
+                    or other sensitive information. Submitted text
+                    is sent to the application server for summarization.
+                </p>
+            </div>
+
+            <article class="workspace-info-card">
+
+                <span class="info-card-icon">☰</span>
+
+                <h3>Designed for dialogue</h3>
+
+                <p>
+                    Conversation-style text works best.
+                    Paste messages, discussions, or
+                    dialogue transcripts.
+                </p>
+
+            </article>
+
+
+            <article class="workspace-info-card">
+
+                <span class="info-card-icon">✧</span>
+
+                <h3>Keep the context</h3>
+
+                <p>
+                    Include the relevant parts of a
+                    conversation for a more useful
+                    summary.
+                </p>
+
+            </article>
+
+
+            <article class="workspace-info-card">
+
+                <span class="info-card-icon">✓</span>
+
+                <h3>Review important details</h3>
+
+                <p>
+                    AI-generated summaries may omit
+                    information. Always verify
+                    critical details against the original.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     WORKSPACE EXPLANATORY SECTION
+====================================== -->
+
+<section class="section workspace-explainer">
+
+    <div class="shell workspace-explainer-grid">
+
+        <div>
+
+            <span class="section-eyebrow">
+                A MORE THOUGHTFUL WORKFLOW
+            </span>
+
+            <h2>
+                Simple by design.
+                <br>
+                <em>Useful by nature.</em>
+            </h2>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Information is everywhere, but clarity
+                can be difficult to find. Sumora AI
+                provides a focused space to transform
+                lengthy conversations into shorter,
+                more digestible summaries.
+            </p>
+
+            <p>
+                Simply enter your dialogue, generate
+                the summary, and copy the result when
+                you need it. The interface is designed
+                to keep the process comfortable,
+                intuitive, and distraction-free.
+            </p>
+
+            <a href="/about"
+               class="inline-link">
+                Learn more about Sumora AI
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================
+     TOAST NOTIFICATION
+====================================== -->
+
+<div
+    id="toast"
+    class="toast"
+    role="status"
+    aria-live="polite"
+    hidden
+></div>
+
+{% endblock %}

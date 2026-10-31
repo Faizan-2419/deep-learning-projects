@@ -1,0 +1,976 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Sumora AI — Less Reading. More Understanding.
+{% endblock %}
+
+{% block description %}
+Summarize long conversations with Sumora AI. Discover a simple, thoughtfully designed AI workspace for dialogue summarization.
+{% endblock %}
+
+{% block content %}
+
+<!-- ======================================
+     SECTION 1 — HERO
+======================================= -->
+
+<section class="hero-section">
+
+    <div class="shell hero-grid">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                INTELLIGENT DIALOGUE SUMMARIZATION
+            </div>
+
+            <h1>
+                Less reading.
+                <br>
+                <em>More understanding.</em>
+            </h1>
+
+            <p class="hero-description">
+                Every conversation has something worth remembering.
+                Sumora AI transforms lengthy dialogues into clear,
+                meaningful summaries so you can spend less time
+                reading and more time understanding.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="/workspace"
+                   class="button button-primary">
+                    Start Summarizing
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+                <a href="#how-it-works"
+                   class="button button-secondary">
+                    Discover How It Works
+                </a>
+
+            </div>
+
+            <div class="hero-highlights">
+
+                <span>✦ Transformer-powered</span>
+                <span>✦ Designed for dialogue</span>
+                <span>✦ Simple to use</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Decorative App Preview -->
+
+        <div class="hero-visual">
+
+            <div class="preview-decoration preview-decoration-one"></div>
+            <div class="preview-decoration preview-decoration-two"></div>
+
+            <div class="hero-preview-card">
+
+                <div class="preview-topbar">
+
+                    <div class="preview-window-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <span>Sumora AI / Workspace</span>
+
+                    <span class="preview-topbar-icon">✳</span>
+
+                </div>
+
+                <div class="preview-body">
+
+                    <div class="preview-label">
+                        <span class="small-icon">✎</span>
+                        ORIGINAL CONVERSATION
+                    </div>
+
+                    <div class="preview-conversation">
+
+                        <div class="conversation-line">
+                            <strong>Alex</strong>
+                            <p>
+                                Can we move our project meeting
+                                to Thursday morning?
+                            </p>
+                        </div>
+
+                        <div class="conversation-line">
+                            <strong>Sam</strong>
+                            <p>
+                                Thursday at 10 AM works for me.
+                                Let's inform the rest of the team.
+                            </p>
+                        </div>
+
+                        <div class="conversation-line">
+                            <strong>Alex</strong>
+                            <p>
+                                Perfect. I'll send everyone an update.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="preview-transition">
+                        <span>✳</span>
+                        <span>SUMORA INTELLIGENCE</span>
+                        <span class="transition-line"></span>
+                    </div>
+
+                    <div class="preview-summary">
+
+                        <div class="preview-summary-heading">
+                            <span>✦</span>
+                            THE ESSENTIAL SUMMARY
+                        </div>
+
+                        <p>
+                            Alex and Sam agreed to reschedule their
+                            project meeting to Thursday at 10 AM.
+                            Alex will notify the team.
+                        </p>
+
+                        <div class="preview-summary-bottom">
+                            <span class="preview-status-dot"></span>
+                            Example summary
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-floating-label">
+                <span>✦</span>
+                From conversation to clarity
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 2 — TECHNOLOGY STRIP
+======================================= -->
+
+<section class="technology-strip">
+
+    <div class="shell">
+
+        <p class="strip-heading">
+            THOUGHTFULLY BUILT WITH
+        </p>
+
+        <div class="technology-items">
+
+            <span>✳ Transformer Architecture</span>
+            <span>Fine-Tuned T5</span>
+            <span>Hugging Face</span>
+            <span>FastAPI</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 3 — WHY SUMORA
+======================================= -->
+
+<section class="section section-why" id="why-sumora">
+
+    <div class="shell">
+
+        <div class="section-heading centered">
+
+            <span class="section-eyebrow">
+                THE VALUE OF CLARITY
+            </span>
+
+            <h2>
+                Conversations grow fast.
+                <br>
+                <em>Clarity should too.</em>
+            </h2>
+
+            <p>
+                Important ideas often get buried inside long
+                conversations. Sumora AI helps bring the essential
+                information forward, making discussions easier
+                to review, understand, and remember.
+            </p>
+
+        </div>
+
+
+        <div class="benefits-grid">
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon"><i data-lucide="clock-3"></i></div>
+
+                <span class="card-number">01 / TIME</span>
+
+                <h3>Make time for what matters.</h3>
+
+                <p>
+                    Reviewing lengthy conversations can take
+                    valuable time. Read a concise summary
+                    instead of searching through every message.
+                </p>
+
+            </article>
+
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon"><i data-lucide="scan-text"></i></div>
+
+                <span class="card-number">02 / CLARITY</span>
+
+                <h3>Find the meaningful details.</h3>
+
+                <p>
+                    Reduce unnecessary information and bring
+                    the central ideas of a conversation
+                    into a more readable format.
+                </p>
+
+            </article>
+
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon"><i data-lucide="focus"></i></div>
+
+                <span class="card-number">03 / FOCUS</span>
+
+                <h3>Less noise. Better focus.</h3>
+
+                <p>
+                    Keep your attention on the most relevant
+                    information without repeatedly reading
+                    long exchanges.
+                </p>
+
+            </article>
+
+
+            <article class="benefit-card">
+
+                <div class="benefit-icon"><i data-lucide="mouse-pointer-click"></i></div>
+
+                <span class="card-number">04 / SIMPLICITY</span>
+
+                <h3>Understanding, made simpler.</h3>
+
+                <p>
+                    A straightforward summarization experience
+                    that requires no complicated setup
+                    or technical knowledge.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 4 — FEATURES
+======================================= -->
+
+<section class="section features-section" id="features">
+
+    <div class="shell">
+
+        <div class="section-heading">
+
+            <span class="section-eyebrow">
+                THOUGHTFUL BY DESIGN
+            </span>
+
+            <h2>
+                Everything you need.
+                <br>
+                <em>Nothing you don't.</em>
+            </h2>
+
+            <p>
+                A focused set of features designed to make
+                summarization approachable, useful, and
+                comfortable from beginning to end.
+            </p>
+
+        </div>
+
+
+        <div class="features-grid">
+
+            <article class="feature-card feature-card-large">
+
+                <div class="feature-symbol">✳</div>
+
+                <h3>AI-powered dialogue summaries</h3>
+
+                <p>
+                    Transform conversation-style text into
+                    shorter, readable summaries using
+                    a fine-tuned T5 Transformer model.
+                </p>
+
+                <div class="feature-mini-demo">
+
+                    <span class="demo-text-line"></span>
+                    <span class="demo-text-line short"></span>
+
+                    <span class="demo-divider">↓</span>
+
+                    <span class="demo-result-line"></span>
+                    <span class="demo-result-line short"></span>
+
+                </div>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-symbol">◎</div>
+
+                <h3>A distraction-free workspace</h3>
+
+                <p>
+                    A clean, readable interface that lets
+                    you concentrate on the content
+                    rather than unnecessary controls.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-symbol">↗</div>
+
+                <h3>One simple action</h3>
+
+                <p>
+                    Paste your conversation, select
+                    Generate Summary, and review
+                    the resulting text.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-symbol">▣</div>
+
+                <h3>Copy when you're ready</h3>
+
+                <p>
+                    Easily copy generated summaries
+                    for your personal notes and
+                    other text-based workflows.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-symbol">◈</div>
+
+                <h3>Designed for every screen</h3>
+
+                <p>
+                    A responsive interface that adapts
+                    to desktop, tablet, and
+                    mobile screen sizes.
+                </p>
+
+            </article>
+
+
+            <article class="feature-card">
+
+                <div class="feature-symbol">✦</div>
+
+                <h3>Thoughtful feedback</h3>
+
+                <p>
+                    Clear processing indicators,
+                    empty states, and helpful
+                    messages guide your experience.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     EDITORIAL STATEMENT
+======================================= -->
+
+<section class="editorial-statement">
+
+    <div class="shell editorial-statement-inner">
+
+        <div class="editorial-statement-label">
+            <span class="eyebrow-dot"></span>
+            THE SUMORA PHILOSOPHY
+        </div>
+
+        <div class="editorial-statement-content">
+
+            <span class="editorial-quote-mark"
+                  aria-hidden="true">“</span>
+
+            <blockquote>
+                The goal isn't to read more.
+                <em>It's to understand better.</em>
+            </blockquote>
+
+            <p>
+                Less information overload.
+                More room for meaningful understanding.
+            </p>
+
+        </div>
+
+        <div class="editorial-statement-footer">
+            <span>THOUGHTFULLY DESIGNED FOR CLARITY</span>
+            <span aria-hidden="true">✳</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 5 — HOW IT WORKS
+======================================= -->
+
+<section class="section how-section" id="how-it-works">
+
+    <div class="shell">
+
+        <div class="section-heading centered">
+
+            <span class="section-eyebrow">
+                A SIMPLER WAY FORWARD
+            </span>
+
+            <h2>
+                Three small steps.
+                <br>
+                <em>One clearer picture.</em>
+            </h2>
+
+            <p>
+                No complicated workflow. Just your
+                conversation, our summarization engine,
+                and the information you need.
+            </p>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+            <article class="step-card">
+
+                <span class="step-number">01</span>
+
+                <div class="step-illustration">
+                    <span>☰</span>
+                </div>
+
+                <h3>Bring your conversation</h3>
+
+                <p>
+                    Paste dialogue or conversation-style
+                    text directly into the workspace.
+                </p>
+
+            </article>
+
+
+            <article class="step-card">
+
+                <span class="step-number">02</span>
+
+                <div class="step-illustration">
+                    <span>✳</span>
+                </div>
+
+                <h3>Let Sumora summarize</h3>
+
+                <p>
+                    Generate a concise summary using
+                    the existing AI summarization engine.
+                </p>
+
+            </article>
+
+
+            <article class="step-card">
+
+                <span class="step-number">03</span>
+
+                <div class="step-illustration">
+                    <span>✓</span>
+                </div>
+
+                <h3>Take clarity with you</h3>
+
+                <p>
+                    Read your summary, review its
+                    details, and copy it when needed.
+                </p>
+
+            </article>
+
+        </div>
+
+        <div class="section-bottom-action">
+
+            <a href="/workspace"
+               class="button button-primary">
+                Try the Workspace
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 6 — USE CASES
+======================================= -->
+
+<section class="section usecases-section" id="use-cases">
+
+    <div class="shell">
+
+        <div class="section-heading">
+
+            <span class="section-eyebrow">
+                MADE FOR EVERYDAY CLARITY
+            </span>
+
+            <h2>
+                Useful wherever
+                <br>
+                <em>conversations happen.</em>
+            </h2>
+
+            <p>
+                From academic discussions to professional
+                communication, Sumora AI makes
+                conversational information easier to review.
+            </p>
+
+        </div>
+
+
+        <div class="usecases-grid">
+
+            <article class="usecase-card">
+
+                <span class="usecase-index">01</span>
+
+                <div class="usecase-icon">✎</div>
+
+                <h3>For students</h3>
+
+                <p>
+                    Simplify educational discussions,
+                    group conversations, and study-related
+                    dialogue into concise notes.
+                </p>
+
+                <span class="usecase-category">
+                    LEARNING & STUDY
+                </span>
+
+            </article>
+
+
+            <article class="usecase-card">
+
+                <span class="usecase-index">02</span>
+
+                <div class="usecase-icon">▦</div>
+
+                <h3>For professionals</h3>
+
+                <p>
+                    Review meeting-style conversations
+                    and workplace discussions without
+                    rereading every exchange.
+                </p>
+
+                <span class="usecase-category">
+                    WORK & PRODUCTIVITY
+                </span>
+
+            </article>
+
+
+            <article class="usecase-card">
+
+                <span class="usecase-index">03</span>
+
+                <div class="usecase-icon">◎</div>
+
+                <h3>For researchers</h3>
+
+                <p>
+                    Condense interview-style conversations
+                    into readable summaries for
+                    easier initial review.
+                </p>
+
+                <span class="usecase-category">
+                    RESEARCH & ANALYSIS
+                </span>
+
+            </article>
+
+
+            <article class="usecase-card">
+
+                <span class="usecase-index">04</span>
+
+                <div class="usecase-icon">◉</div>
+
+                <h3>For teams</h3>
+
+                <p>
+                    Simplify collaborative discussions,
+                    support conversations, and shared
+                    communication records.
+                </p>
+
+                <span class="usecase-category">
+                    TEAM COMMUNICATION
+                </span>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 7 — WORKSPACE PREVIEW
+======================================= -->
+
+<section class="section showcase-section">
+
+    <div class="shell showcase-grid">
+
+        <div class="showcase-content">
+
+            <span class="section-eyebrow">
+                YOUR WORKSPACE AWAITS
+            </span>
+
+            <h2>
+                A little space
+                <br>
+                for <em>big clarity.</em>
+            </h2>
+
+            <p>
+                We believe useful technology should feel
+                effortless. Our workspace brings the input
+                and the summary together in a comfortable,
+                distraction-free environment.
+            </p>
+
+            <div class="showcase-points">
+
+                <div>
+                    <span>✓</span>
+                    Clean side-by-side layout
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Comfortable reading experience
+                </div>
+
+                <div>
+                    <span>✓</span>
+                    Simple copy and clear actions
+                </div>
+
+            </div>
+
+            <a href="/workspace"
+               class="button button-primary">
+                Explore the Workspace
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+
+        <div class="showcase-visual">
+
+            <div class="showcase-app-card">
+
+                <div class="showcase-app-header">
+                    <span>✳ Sumora Workspace</span>
+                    <span>EXAMPLE PREVIEW</span>
+                </div>
+
+                <div class="showcase-app-body">
+
+                    <div class="showcase-input">
+
+                        <div class="showcase-panel-label">
+                            INPUT DIALOGUE
+                        </div>
+
+                        <p>
+                            Maya: Did we finalize the presentation?
+                        </p>
+
+                        <p>
+                            Noah: Yes, we just need to review
+                            the last two slides tomorrow.
+                        </p>
+
+                        <p>
+                            Maya: Great, I'll prepare the notes.
+                        </p>
+
+                    </div>
+
+                    <div class="showcase-output">
+
+                        <div class="showcase-panel-label">
+                            GENERATED SUMMARY
+                        </div>
+
+                        <p>
+                            Maya and Noah finalized the presentation
+                            and plan to review the last two
+                            slides tomorrow. Maya will prepare
+                            the notes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 8 — FAQ
+======================================= -->
+
+<section class="section faq-section" id="faq">
+
+    <div class="shell faq-grid">
+
+        <div class="faq-intro">
+
+            <span class="section-eyebrow">
+                GOOD TO KNOW
+            </span>
+
+            <h2>
+                Curious?
+                <br>
+                <em>We've got answers.</em>
+            </h2>
+
+            <p>
+                A few helpful details about
+                what Sumora AI does and how
+                to make the most of it.
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+            <details class="faq-item">
+
+                <summary>
+                    What kind of text works best?
+                    <span class="faq-toggle">+</span>
+                </summary>
+
+                <p>
+                    Sumora AI is designed primarily for
+                    dialogue-style content, including
+                    discussions, chat exchanges,
+                    and conversational transcripts.
+                </p>
+
+            </details>
+
+
+            <details class="faq-item">
+
+                <summary>
+                    Do I need technical knowledge?
+                    <span class="faq-toggle">+</span>
+                </summary>
+
+                <p>
+                    No. You can simply paste a conversation
+                    into the workspace and generate a summary.
+                </p>
+
+            </details>
+
+
+            <details class="faq-item">
+
+                <summary>
+                    Can I summarize long conversations?
+                    <span class="faq-toggle">+</span>
+                </summary>
+
+                <p>
+                    You can enter longer conversations,
+                    but the current model processes a
+                    maximum of 512 input tokens.
+                    Text exceeding that limit is truncated,
+                    so important information near the end
+                    might not be considered.
+                </p>
+
+            </details>
+
+
+            <details class="faq-item">
+
+                <summary>
+                    Can I use the generated summary elsewhere?
+                    <span class="faq-toggle">+</span>
+                </summary>
+
+                <p>
+                    Yes. The workspace includes an option
+                    to copy your summary so you can
+                    paste it into your own notes
+                    or documents.
+                </p>
+
+            </details>
+
+
+            <details class="faq-item">
+
+                <summary>
+                    Are AI-generated summaries always accurate?
+                    <span class="faq-toggle">+</span>
+                </summary>
+
+                <p>
+                    Not necessarily. As with other
+                    generative AI systems, summaries
+                    can occasionally omit details
+                    or contain inaccuracies.
+                    Review important information
+                    against the original conversation.
+                </p>
+
+            </details>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ======================================
+     SECTION 9 — FINAL CTA
+======================================= -->
+
+<section class="final-cta-section">
+
+    <div class="shell">
+
+        <div class="final-cta-content">
+
+            <span class="cta-eyebrow">
+                YOUR NEXT CHAPTER IN CLARITY
+            </span>
+
+            <h2>
+                Make room for
+                <br>
+                <em>what matters.</em>
+            </h2>
+
+            <p>
+                The best ideas deserve to be understood.
+                Start turning conversations into
+                clear, concise summaries today.
+            </p>
+
+            <a href="/workspace"
+               class="button button-light">
+                Open Sumora Workspace
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

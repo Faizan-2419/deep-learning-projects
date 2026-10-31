@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#F7F1E8">
+
+    <!-- Sumora AI Favicon -->
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="{{ url_for('static', path='/icons/favicon.svg') }}"
+    >
+
+    <meta
+        name="description"
+        content="{% block description %}Sumora AI transforms lengthy conversations into concise, meaningful summaries using a fine-tuned T5 Transformer model.{% endblock %}"
+    >
+
+    <title>
+        {% block title %}
+        Sumora AI — Less reading. More understanding.
+        {% endblock %}
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main stylesheet -->
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='/css/style.css') }}"
+    >
+
+    
+    <!-- Lucide Icon Library -->
+    <script
+        defer
+        src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js">
+    </script>
+
+    <!-- Main JavaScript -->
+    <script
+        defer
+        src="{{ url_for('static', path='/js/main.js') }}">
+    </script>
+
+
+    {% block head %}{% endblock %}
+
+</head>
+
+<body>
+    <a href="#main" class="skip-link">
+        Skip to main content
+    </a>
+
+    <!-- NAVBAR -->
+    <header class="site-header" id="site-header">
+
+        <div class="shell nav-inner">
+
+            <!-- Logo -->
+            <a href="/" class="brand">
+                <span class="brand-mark">✳</span>
+                sumora<span class="brand-dot">.</span>
+                <span class="brand-ai">AI</span>
+            </a>
+
+            <!-- Navigation links -->
+            <nav class="main-nav"
+                 id="main-nav"
+                 aria-label="Main navigation">
+
+                <a
+                    href="/"
+                    class="nav-link
+                    {% if active_page == 'home' %}
+                    active
+                    {% endif %}"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="/workspace"
+                    class="nav-link
+                    {% if active_page == 'workspace' %}
+                    active
+                    {% endif %}"
+                >
+                    Workspace
+                </a>
+
+                <a
+                    href="/about"
+                    class="nav-link
+                    {% if active_page == 'about' %}
+                    active
+                    {% endif %}"
+                >
+                    About
+                </a>
+
+            </nav>
+
+            <!-- Main CTA -->
+            <a href="/workspace"
+               class="button button-primary nav-cta">
+                Launch Workspace
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- Mobile menu -->
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-controls="main-nav"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- PAGE CONTENT -->
+    <main id="main">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+
+        <div class="shell">
+
+            <div class="footer-grid">
+
+                <!-- Brand -->
+                <div class="footer-brand-col">
+
+                    <a href="/" class="brand footer-brand">
+                        <span class="brand-mark">✳</span>
+                        sumora<span class="brand-dot">.</span>
+                        <span class="brand-ai">AI</span>
+                    </a>
+
+                    <p>
+                        Thoughtful summaries for the
+                        conversations that matter.
+                    </p>
+
+                    <span class="footer-small">
+                        Built with Transformer AI.
+                    </span>
+
+                </div>
+
+
+                <!-- Explore -->
+                <div class="footer-column">
+
+                    <h3>Explore</h3>
+
+                    <a href="/">Home</a>
+
+                    <a href="/workspace">Workspace</a>
+
+                    <a href="/about">About</a>
+
+                </div>
+
+
+                <!-- Resources -->
+                <div class="footer-column">
+
+                    <h3>Resources</h3>
+
+                    <a href="/#features">Features</a>
+
+                    <a href="/#how-it-works">How It Works</a>
+
+                    <a href="/#faq">FAQs</a>
+
+                </div>
+
+
+                <!-- Technology -->
+                <div class="footer-column">
+
+                    <h3>Technology</h3>
+
+                    <span>Fine-tuned T5</span>
+
+                    <span>FastAPI</span>
+
+                    <span>Hugging Face</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © <span id="copyright-year">2026</span>
+                    Sumora AI.
+                </span>
+
+                <span>
+                    Understand more. Read less.
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

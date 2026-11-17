@@ -74,17 +74,27 @@ agent=get_agent()
 video_url=st.text_input("Enter You-Tube Video Link")
 button=st.button("Analyze video")
 
-if video_url and button:
-    with st.spinner("wait a moment..."):
-        response=agent.run(
-            f"Analyze this video:{video_url}"
-        )
-    st.markdown("""
-        <h1 style="font-size:32px; font-weight:700; color:#E6EDF3; margin-bottom:15px; text-align:center;">
-        📊 Video Analysis
-        </h1>
-        """, unsafe_allow_html=True)
-    st.markdown(
-        f"""<div class="output-box">{response.content}</div>""",
-        unsafe_allow_html=True
-    )
+if button:
+    if not video_url.strip():
+        st.warning("Please enter a YouTube video URL.")
+
+    elif "youtube.com" not in video_url and "youtu.be" not in video_url:
+        st.error("Please enter a valid YouTube URL.")
+
+    else:
+        try:
+            with st.spinner("Analyzing video..."):
+                response = agent.run(
+                    f"Analyze this video: {video_url}"
+                )
+
+            if response and response.content:
+                st.markdown("## Video Analysis")
+
+                with st.container(border=True):
+                    st.markdown(response.content)
+            else:
+                st.warning("No analysis was generated.")
+
+        except Exception as e:
+            st.error(f"Analysis failed: {e}")

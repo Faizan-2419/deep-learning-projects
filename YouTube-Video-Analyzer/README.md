@@ -1,90 +1,110 @@
 # 🎥 AI YouTube Video Analyzer
-### **Agentic AI Knowledge Extraction System**
 
-This project is an AI-powered YouTube video analyzer that converts any YouTube video into a structured, easy-to-read knowledge document. It utilizes an **Agentic AI** approach rather than simple summarization, allowing the model to process video context in steps and generate high-level structured insights.
+Don't have 40 minutes to watch a video just to find out if it's worth it? Paste a YouTube link, and this app reads the transcript and gives you a clean summary: the main ideas, the key terms explained simply, and what you can actually take away from it.
 
----
+Built with Streamlit, Agno, and Groq.
 
-## 🚀 What this project does
-When you provide a YouTube video link, the system:
-* **Transcript Extraction:** Fetches the video transcript using specialized YouTube tools.
-* **Agentic Analysis:** Analyzes the full content using an autonomous AI agent.
-* **Contextual Understanding:** Identifies the topic, tone, and logical structure of the video.
-* **Knowledge Synthesis:** Generates a professional document including summaries, key points, and timestamp breakdowns.
+
+**🌐 Live Demo:** [Try it here](https://youtube-video-analyzer-aii.streamlit.app/)
 
 ---
 
-## 🧠 How the AI Agent Works
-This project uses an **Agno Agent** powered by a **Groq-hosted LLM**. The agent follows a specific "Chain of Thought" instruction set:
+## What it does
 
-1. **Context Parsing:** Reads and understands the full video transcript.
-2. **Structural Decomposition:** Breaks content into logical sections (Introduction, Core, Conclusion).
-3. **Concept Extraction:** Identifies and defines technical terms or important concepts.
-4. **Temporal Mapping:** Creates an approximate timestamp-based breakdown.
-5. **Adaptive Output:** Adjusts the final document based on whether the content is **Educational** or **Technical**.
+You paste a YouTube URL. The app pulls the video's transcript, hands it to an AI agent, and returns a structured breakdown:
 
-### **The Engine**
-* **Model:** `Qwen 3 (32B)` via Groq API (High-speed inference).
-* **Framework:** Agno Agent Framework.
-* **Tools:** `YouTubeTools` for metadata and transcript retrieval.
+- **Video title**
+- **Short summary** of what the video is about
+- **Key points** worth remembering
+- **Important concepts** explained in plain language
+- **Practical takeaways** you can apply right away
 
----
+It's meant for learning, so the output stays short and easy to read.
 
-## 📊 Output Format
-For every video, the agent generates a comprehensive report:
-1. **Title:** Extracted video title.
-2. **Short Summary:** 4–6 line executive overview.
-3. **Detailed Explanation:** 2–4 paragraphs explaining core ideas in simple language.
-4. **Key Points:** 6–10 high-impact bullet points.
-5. **Timestamp Breakdown:** Chronological topic navigation (e.g., `[03:45] Key explanation`).
-6. **Concepts/Terms:** Simple definitions of jargon used in the video.
-7. **Practical Takeaways:** Real-world applications or learning outcomes.
-8. **Dynamic Sections:** Tailored "Learnings" for education or "Code Insights" for technical videos.
+## How it works
 
----
+1. You enter a YouTube video URL.
+2. `YouTubeTools` fetches the video's transcript.
+3. An Agno agent reads the transcript and follows a set of instructions for how to summarize it.
+4. The model (`openai/gpt-oss-120b`, an open-weight model served through Groq) writes the analysis.
+5. Streamlit displays the result.
 
-## 🛠 Tech Stack
-* **Language:** Python
-* **Frontend:** Streamlit (Custom Dark UI)
-* **Agent Logic:** Agno Agent
-* **Inference:** Groq API
-* **Environment Management:** `python-dotenv`
+The agent only works from the transcript, so the summary reflects what was actually said in the video.
 
----
+## Tech stack
 
-## ⚙️ How to Run the Project
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-   cd YOUR_REPO_NAME
-Install dependencies:
+| Tool | What it's used for |
+|---|---|
+| Python | Core language |
+| Streamlit | Web interface |
+| Agno | AI agent framework |
+| Groq API | Fast LLM inference |
+| `openai/gpt-oss-120b` | The language model |
+| YouTubeTools | Transcript retrieval |
+| python-dotenv | Loading environment variables |
 
-Bash
+## Run it locally
+
+**You'll need:** Python 3.10+ and a free API key from [Groq](https://console.groq.com).
+
+**1. Clone the repo**
+
+```bash
+git clone https://github.com/Faizan-2419/deep-learning-projects.git
+cd deep-learning-projects/YouTube-Video-Analyzer
+```
+
+**2. Install dependencies**
+
+```bash
 pip install -r requirements.txt
-Add Environment Variables:
-Create a .env file in the root directory:
+```
 
-Code snippet
-GROQ_API_KEY=your_api_key_here
-Launch the App:
+**3. Add your API key**
 
-Bash
+Copy `.env.example` to `.env` and add your key:
+
+```env
+GROQ_API_KEY=your_groq_api_key
+```
+
+**4. Start the app**
+
+```bash
 streamlit run ui.py
-📌 Project Structure
-Plaintext
-PROJECT/
-│── ui.py                # Streamlit frontend & UI styling
-│── youtube_analyzer.py  # Agentic logic & Agno configuration
-│── .env                 # API keys (Hidden via .gitignore)
-│── requirements.txt     # Project dependencies
-│── README.md            # Project documentation
-└── .gitignore           # File to exclude venv/ & cache
+```
 
+## Project structure
 
-Connect with me
+```text
+YouTube-Video-Analyzer/
+├── ui.py                  # Streamlit interface
+├── youtube_analyzer.py    # Agent setup and transcript analysis
+├── requirements.txt
+├── .env.example
+├── .gitignore
+└── README.md
+```
 
-LinkedIn:www.linkedin.com/in/faizanur-rahman
+## Deploying
 
+The easiest option is Streamlit Community Cloud. Add `GROQ_API_KEY` under the app's **Secrets** settings before launching.
 
+## Limitations
 
+- **No transcript, no analysis.** If a video has captions disabled or unavailable, the app can't summarize it.
+- **Very long videos** may run into model context limits.
+- **Non-English videos** may give weaker results.
+- **Rate limits** on the Groq API can slow or block requests during heavy use.
+- The summary is only as good as the transcript and the model's output, so it's worth checking anything important against the video itself.
 
+## Ideas for the future
+
+- Support for more languages
+- Export summaries to Markdown or PDF
+- Ask follow-up questions about the video
+
+## Connect
+
+Built by Faizanur Rahman. Feedback and ideas are welcome.
+[LinkedIn](https://www.linkedin.com/in/faizanur-rahman/)
